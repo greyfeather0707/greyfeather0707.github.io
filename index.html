@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="default">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -132,7 +132,7 @@
   <title> My World  My Way </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
 
@@ -197,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -207,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -250,7 +250,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="greyfeather0707.github.io/2017/02/26/first/">
+    <link itemprop="mainEntityOfPage" href="greyfeather0707.github.io/2017/03/08/使用tomcat在myeclipse下搭建简单website/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Winter Qian">
@@ -272,8 +272,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/26/first/" itemprop="url">
-                  first
+                <a class="post-title-link" href="/2017/03/08/使用tomcat在myeclipse下搭建简单website/" itemprop="url">
+                  使用tomcat在myeclipse下搭建简单website
                 </a>
               
             
@@ -287,10 +287,160 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-26T11:03:44+08:00">
-                2017-02-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T15:11:17+08:00">
+                2017-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="新建web-project"><a href="#新建web-project" class="headerlink" title="新建web project"></a>新建web project</h2><ol>
+<li><p>新建web project<br><img src="images/360截图20170308151739555.jpg" alt="">   </p>
+</li>
+<li><p>在web module 页面中勾选 generate web.xml deployment descriptor后，点击finish<br><img src="images/360截图20170308152112196.jpg" alt="">   </p>
+</li>
+<li><p>在src下新建一个package：com.beifeng.servlet<br>然后在新建一个class：Myservlet，在新建该类时，继承父类javax.servlet.http.HttpServlet<br><img src="images/360截图20170308152745238.jpg" alt=""><br><img src="images/360截图20170308152911317.jpg" alt="">  </p>
+</li>
+<li><p>重写doget方法   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public class Myservlet extends HttpServlet &#123;</div><div class="line">    //doGet 重写父类的方法 doGet（默认）   doPost(处理从网页端发送过来的请求)</div><div class="line">    @Override</div><div class="line">    protected void doGet(HttpServletRequest req, HttpServletResponse resp)</div><div class="line">    throws ServletException, IOException &#123;</div><div class="line">      System.out.println(&quot;Hello,world!&quot;);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="images/360截图20170308153224501.jpg" alt=""><br><img src="images/360截图20170308153524248.jpg" alt="">   </p>
+<ol>
+<li>打开web.xml，进入source页面，可找到下面代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//这是进入网站后默认的进入页面列表，</div><div class="line">//从index.html依次向下查找</div><div class="line">//在这里会找到index.jsp</div><div class="line">&lt;welcome-file-list&gt;  </div><div class="line">  &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;</div><div class="line">  &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;</div><div class="line">  &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;</div><div class="line">  &lt;welcome-file&gt;default.html&lt;/welcome-file&gt;</div><div class="line">  &lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;</div><div class="line">  &lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;</div><div class="line">&lt;/welcome-file-list&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="images/360截图20170308154015009.jpg" alt=""></p>
+<ol>
+<li><p>对index.jsp进行修改</p>
+<ul>
+<li><p>将字符集改为 UTF-8，否则可能因出现中文不能识别，而报警报错。</p>
+<figure class="highlight plain"><figcaption><span>page language="java" import="java.util.*" pageEncoding="UTF-8"%></span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">```   </div><div class="line"></div><div class="line">* 更改设计页面内容,先简单改下即可</div></pre></td></tr></table></figure>
+<p><body><br>My World, My way！！！<br><br></body><br>```<br><img src="images/360截图20170308154106603.jpg" alt="">   </p>
+<p><img src="images/360截图20170308154145897.jpg" alt="">   </p>
+</li>
+</ul>
+</li>
+<li><p>发布页面<br> 1) 启动tomcat服务<br> <img src="images/360截图20170308154409628.jpg" alt="">   </p>
+<p> 2）加载部署网页内容<br> <img src="images/360截图20170308154552131.jpg" alt=""></p>
+<p> <img src="images/360截图20170308154610291.jpg" alt="">    </p>
+<p> <img src="images/360截图20170308154626587.jpg" alt=""></p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="greyfeather0707.github.io/2017/03/08/myeclipse-tomcat-website/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Winter Qian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My World  My Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/08/myeclipse-tomcat-website/" itemprop="url">
+                  myeclipse_tomcat_website
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T15:10:25+08:00">
+                2017-03-08
               </time>
             
 
@@ -367,6 +517,442 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="greyfeather0707.github.io/2017/03/04/mysql-myeclipse-maven/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Winter Qian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My World  My Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/04/mysql-myeclipse-maven/" itemprop="url">
+                  mysql myeclipse maven
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-04T08:55:34+08:00">
+                2017-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h2><p>java 的一个类(API)<br>相当于物流快递中，物流中转站到物流中转站的过程<br>术语是网络端到端的接收</p>
+<p>java.net</p>
+<h1 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h1><p>在不实例化对象的前提下，得到对象的类，方法，构造方法，属性<br>先获取类，</p>
+<h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><p>java database connectivity</p>
+<ol>
+<li>加载驱动类  Class.forName<br>2.<br>3.<br>4.</li>
+<li></li>
+</ol>
+<h1 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h1><h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="greyfeather0707.github.io/2017/03/02/DJ-201701-market-monthly-report/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Winter Qian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My World  My Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/02/DJ-201701-market-monthly-report/" itemprop="url">
+                  DJ_201701_market_monthly_report
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-02T09:51:19+08:00">
+                2017-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这份markdown需要和 2017-01新能源汽车市场数据分析报告.ppt 一起使用</p>
+<h3 id="当年当月-新能源市场产量情况"><a href="#当年当月-新能源市场产量情况" class="headerlink" title="当年当月 新能源市场产量情况"></a><strong>当年当月 新能源市场产量情况</strong></h3><p>  1月是新一年新周期的开始，2017-01新能源汽车产量一拉到底，从零开始。<br>  大体基本符合预期，1月共生产4351辆。</p>
+<ul>
+<li>车辆类别：<ul>
+<li>乘用车部分共生产3713台，当月占85.3%；</li>
+<li>商用车不封工生产286台，其中纯电动只有35台；</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>动力系统：<ul>
+<li>纯电动较混合动力一直有比较大的占比，</li>
+</ul>
+</li>
+</ul>
+<h3 id="近6月-各车辆类别产量变化环比"><a href="#近6月-各车辆类别产量变化环比" class="headerlink" title="近6月  各车辆类别产量变化环比"></a><strong>近6月  各车辆类别产量变化环比</strong></h3><p>  从生产数量上看，混合动力乘用车目前趋于弱势。<br>  其产量即便是年前的爆发式增长期，也没有趁势而起，相反不断减少。<br>  其他车辆类别都如前所述，出现了年初产量断崖的现象。</p>
+<h3 id="近6月-乘用车产量变化环比"><a href="#近6月-乘用车产量变化环比" class="headerlink" title="近6月 乘用车产量变化环比"></a><strong>近6月 乘用车产量变化环比</strong></h3><ul>
+<li>A00-A0级别：<br>从2017年底产量就有所下降</li>
+<li>B-&gt;C级别：<br>主要的产量来自于比亚迪E6和上汽荣威E550，奇瑞艾瑞泽7混动</li>
+</ul>
+<h3 id="当年当月-新能源市场产量情况-1"><a href="#当年当月-新能源市场产量情况-1" class="headerlink" title="当年当月 新能源市场产量情况"></a><strong>当年当月 新能源市场产量情况</strong></h3><p>  同比2016-01的产量，2017年的产量疲软，大部分车型分类产量较2015-01还低。</p>
+<p>  造成这种情况的原因，应包含以下几点:</p>
+<ul>
+<li>之前的新能源汽车推广应用推荐目录作废，而新的目录与2017-01-22才发布；</li>
+<li>同时由于春节假期的来临，厂家没有机会进行生产。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>年</th>
+<th>一季度产量</th>
+<th>年产量</th>
+<th>一季度产量占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014</td>
+<td>7290</td>
+<td>103118</td>
+<td>7.07%</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>26417</td>
+<td>384819</td>
+<td>6.86%</td>
+</tr>
+<tr>
+<td>2016</td>
+<td>47666</td>
+<td>510540</td>
+<td>9.34%  </td>
+</tr>
+</tbody>
+</table>
+<p>平均一季度产量占比 7.8%</p>
+<h3 id="历年当月-乘用车产量变化同比"><a href="#历年当月-乘用车产量变化同比" class="headerlink" title="历年当月  乘用车产量变化同比"></a><strong>历年当月  乘用车产量变化同比</strong></h3><p>  从1月份生产数据看  </p>
+<ul>
+<li>A00级别车辆在乘用车部分中降幅最小，产量最多</li>
+<li>A，A0级别车辆的降幅最大，都超过了90%<br>:grey_question:<br>2017乘用车的主要车辆级别会是哪些？</li>
+</ul>
+<h3 id="当年当月-新能源汽车厂产量TOP"><a href="#当年当月-新能源汽车厂产量TOP" class="headerlink" title="当年当月 新能源汽车厂产量TOP"></a><strong>当年当月 新能源汽车厂产量TOP</strong></h3><ul>
+<li>当月，北汽产量为923辆，排名第一；</li>
+<li>而上汽通用五菱凭借其武陵牌A00级车辆，占据了当月乘用车产量的第二名  </li>
+<li>当月混合动力车辆有两家企业生产，分别是上汽和比亚迪，他们也是混合动力车辆的主要生产厂家</li>
+</ul>
+<ul>
+<li>当月生产的商用车部分基本上都是混合动力类型的</li>
+<li>由郑州宇通和一汽集团生产</li>
+</ul>
+<h1 id="todo分区域市场占有率"><a href="#todo分区域市场占有率" class="headerlink" title="todo分区域市场占有率"></a>todo分区域市场占有率</h1><h1 id="todo市场集中度"><a href="#todo市场集中度" class="headerlink" title="todo市场集中度"></a>todo市场集中度</h1><h1 id="增加-车厂简称，车厂集团"><a href="#增加-车厂简称，车厂集团" class="headerlink" title="增加 车厂简称，车厂集团"></a>增加 车厂简称，车厂集团</h1><h1 id="增加车辆型号"><a href="#增加车辆型号" class="headerlink" title="增加车辆型号"></a>增加车辆型号</h1><p>  五菱 -宝骏<br>  <table><br>     <tr><br>        <td>企业名称</td><br>        <td>生产年月</td><br>        <td>车辆型号</td><br>        <td>(0,50]</td><br>     </tr><br>     <tr><br>        <td>上汽通用五菱汽车股份有限公司</td><br>        <td>2016-10</td><br>        <td>LZW7000EVA</td><br>        <td>1</td><br>     </tr><br>     <tr><br>        <td>上汽通用五菱汽车股份有限公司</td><br>        <td>2016-12</td><br>        <td>LZW7000EVA</td><br>        <td>27</td><br>     </tr><br>     <tr><br>        <td>上汽通用五菱汽车股份有限公司</td><br>        <td>2017-01</td><br>        <td>LZW7000EVA</td><br>        <td>698</td><br>     </tr><br>  </table></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="greyfeather0707.github.io/2017/02/26/first/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Winter Qian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My World  My Way">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/26/first/" itemprop="url">
+                  first
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-26T11:03:44+08:00">
+                2017-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>我的话会被引用</p>
+</blockquote>
+<p><img src="images/1.png" alt=""></p>
+<p><img src="images/2.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="greyfeather0707.github.io/2017/02/26/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -404,7 +990,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-26T09:00:13+08:00">
                 2017-02-26
@@ -529,14 +1115,21 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -584,7 +1177,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
